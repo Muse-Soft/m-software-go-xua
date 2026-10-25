@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gỗ Xưa — Xưởng nội thất gỗ thủ công</title>
+<meta name="description" content="Gỗ Xưa — xưởng nội thất gỗ thủ công: bàn ăn, ghế, tủ, kệ làm tay, đồ bền, đẹp, dùng lâu. Giá và ảnh trên trang chỉ là mẫu minh họa cho bản demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F3EFE6; color: #232B21; font-family: "Be Vietnam Pro", sans-serif; font-size: 16px; line-height: 1.6; }
+  h1, h2, h3 { font-family: "Fraunces", serif; margin: 0 0 12px; line-height: 1.25; }
+  h1 { font-size: 52px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 26px; }
+  p { margin: 0 0 14px; }
+  a { color: #7C5A2E; }
+  .eyebrow { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #5C6652; margin-bottom: 12px; }
+  .caption { font-size: 14px; color: #5C6652; margin-top: 8px; }
+  .muted { color: #5C6652; }
+  /* Nút bấm */
+  .btn { display: inline-block; text-decoration: none; font-weight: 500; border-radius: 4px; padding: 14px 28px; }
+  .btn-primary { background: #7C5A2E; color: #F3EFE6; }
+  .btn-secondary { border: 1px solid #7C5A2E; color: #7C5A2E; background: transparent; }
+  .btn-secondary:hover { background: #E9E1CF; }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+  /* Dấu mộc tròn trên vạch vân gỗ dọc (§7) */
+  .stamp { width: 56px; height: 56px; border: 2px solid #7C5A2E; border-radius: 50%; position: relative; flex: 0 0 auto;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-6deg); background: #F3EFE6; }
+  .stamp::after { content: ""; position: absolute; inset: 4px; border: 1px solid #7C5A2E; border-radius: 50%; }
+  .stamp .mono { font-family: "Fraunces", serif; font-weight: 700; font-size: 20px; color: #7C5A2E; line-height: 1; }
+  .stamp .word { font-size: 8px; letter-spacing: 2px; color: #7C5A2E; line-height: 1; margin-top: 2px; }
+  /* Vạch vân gỗ dọc ở mép trái panel chữ */
+  .panel { position: relative; padding-left: 26px; }
+  .panel::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+    background: repeating-linear-gradient(to bottom, #7C5A2E 0 8px, #B08D57 8px 11px); }
+  .panel .stamp { margin-bottom: 14px; }
+  /* Bố cục Split 50/50 */
+  .split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; max-width: 1160px; margin: 0 auto; padding: 72px 24px; }
+  .split img.main { width: 100%; height: 100%; object-fit: cover; display: block; border: 1px solid #B08D57; }
+  .ratio-45 { aspect-ratio: 4 / 5; }
+  .ratio-32 { aspect-ratio: 3 / 2; }
+  .ratio-43 { aspect-ratio: 4 / 3; }
+  .img-wrap { overflow: hidden; }
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: #F3EFE6; border-bottom: 1px solid #E9E1CF; }
+  .header-inner { max-width: 1160px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #232B21; font-family: "Fraunces", serif; font-weight: 700; font-size: 22px; letter-spacing: 1px; }
+  nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav a { text-decoration: none; color: #232B21; font-size: 15px; }
+  nav a:hover { color: #7C5A2E; }
+  /* Khối tiêu đề chung */
+  .section-head { max-width: 1160px; margin: 0 auto; padding: 72px 24px 0; }
+  .section-head p { color: #5C6652; }
+  /* Thẻ sản phẩm */
+  .product { position: relative; background: #E9E1CF; }
+  .product .stamp { position: absolute; top: 14px; right: 14px; z-index: 2; }
+  .price { font-family: "Fraunces", serif; font-weight: 700; font-size: 24px; color: #7C5A2E; }
+  .spec { font-size: 15px; color: #5C6652; }
+  /* Quy trình */
+  .steps { display: flex; flex-direction: column; gap: 20px; }
+  .step { background: #E9E1CF; padding: 22px 26px; border-left: 6px solid #7C5A2E; }
+  .step-num { font-family: "Fraunces", serif; font-weight: 700; font-size: 34px; color: #7C5A2E; line-height: 1; }
+  .step h3 { margin: 6px 0 6px; font-size: 24px; }
+  .sticky-panel { position: sticky; top: 110px; align-self: start; }
+  blockquote { font-family: "Fraunces", serif; font-style: italic; font-size: 21px; color: #232B21; margin: 18px 0; padding-left: 18px; border-left: 3px solid #B08D57; }
+  /* Form */
+  form { background: #E9E1CF; padding: 28px; border-radius: 4px; }
+  label { display: block; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5C6652; margin: 14px 0 6px; }
+  input, select { width: 100%; padding: 12px; border: 1px solid #B08D57; border-radius: 4px; background: #F3EFE6; font-family: "Be Vietnam Pro", sans-serif; font-size: 16px; color: #232B21; }
+  .form-note { font-size: 14px; color: #5C6652; margin-top: 12px; }
+  #form-msg { font-weight: 500; color: #7C5A2E; margin-top: 12px; }
+  /* Footer */
+  footer { background: #232B21; color: #F3EFE6; }
+  footer .footer-inner { max-width: 1160px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; }
+  footer a { color: #F3EFE6; text-decoration: none; }
+  footer .stamp { background: #232B21; }
+  footer .stamp .mono, footer .stamp .word { color: #B08D57; }
+  footer .stamp, footer .stamp::after { border-color: #B08D57; }
+  .placeholder { font-weight: 500; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .split { gap: 28px; padding: 56px 24px; }
+    h1 { font-size: 44px; }
+  }
+  @media (max-width: 767px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 28px; }
+    .split { grid-template-columns: 1fr; padding: 40px 20px; gap: 24px; }
+    .hero-text { order: 1; }
+    .hero-img { order: 2; }
+    .hero-img .ratio-45 { aspect-ratio: 16 / 10; }
+    .product-img { order: 1; }
+    .product-text { order: 2; }
+    .stamp { width: 44px; height: 44px; }
+    .stamp .mono { font-size: 16px; }
+    .stamp .word { font-size: 7px; }
+    nav { gap: 12px; }
+    .header-inner { flex-wrap: wrap; }
+    .sticky-panel { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      GỖ XƯA
+    </a>
+    <nav>
+      <a href="#xuong">Xưởng</a>
+      <a href="#bo-suu-tap">Bộ sưu tập</a>
+      <a href="#quy-trinh">Quy trình</a>
+      <a href="#tho-moc">Thợ mộc</a>
+      <a href="#lien-he">Liên hệ</a>
+      <a class="btn btn-primary" href="#lien-he">Đặt lịch tư vấn</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 2. Hero Split -->
+  <section class="split">
+    <div class="panel hero-text">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="eyebrow">Xưởng nội thất gỗ thủ công</div>
+      <h1>Đồ gỗ làm tay, dùng cả đời</h1>
+      <p>Gỗ Xưa làm đồ nội thất từ gỗ tự nhiên, chế tác thủ công và hoàn thiện bằng tay — để mỗi món đồ không chỉ đẹp lúc mới mua mà còn bền theo năm tháng.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#bo-suu-tap">Xem bộ sưu tập</a>
+        <a class="btn btn-secondary" href="#lien-he">Đặt lịch tư vấn</a>
+      </div>
+    </div>
+    <div class="img-wrap hero-img">
+      <img class="main ratio-45" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Không gian nội thất gỗ sáng với bàn gỗ và ghế gỗ">
+      <p class="caption">Ảnh mẫu: không gian gỗ sáng — nơi mỗi món đồ bắt đầu từ một tấm gỗ tốt.</p>
+    </div>
+  </section>
+
+  <!-- 3. Giới thiệu xưởng Split đảo -->
+  <section class="split" id="xuong">
+    <div class="img-wrap">
+      <img class="main ratio-32" src="https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Góc xưởng buổi sáng với ánh sáng tự nhiên trên mặt gỗ">
+      <p class="caption">Ảnh mẫu: góc xưởng buổi sáng, ánh sáng tự nhiên trên mặt gỗ.</p>
+    </div>
+    <div class="panel">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="eyebrow">Về xưởng</div>
+      <h2>Làm đồ bền, đẹp, dùng lâu</h2>
+      <ul>
+        <li>Gỗ tự nhiên chọn từng tấm, ưu tiên vân đẹp và thớ chắc.</li>
+        <li>Chế tác thủ công, hoàn thiện bằng tay qua nhiều lớp.</li>
+        <li>Giữ nguyên vân gỗ — không phủ lớp bóng công nghiệp làm mất chất gỗ.</li>
+      </ul>
+      <p class="muted">Năm thành lập: <span class="placeholder">[CẦN BỔ SUNG]</span>.</p>
+    </div>
+  </section>
+
+  <!-- 4. Bộ sưu tập -->
+  <section id="bo-suu-tap">
+    <div class="section-head">
+      <div class="eyebrow">Bộ sưu tập</div>
+      <h2>Bộ sưu tập</h2>
+      <p>Bốn nhóm đồ chính của xưởng — mỗi món đều làm theo đơn và hoàn thiện bằng tay.</p>
+    </div>
+
+    <div class="split product">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="img-wrap product-img">
+        <img class="main ratio-43" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Bàn ăn gỗ trong không gian ăn uống sáng">
+        <p class="caption">Ảnh mẫu: bàn ăn gỗ trong không gian ăn uống sáng.</p>
+      </div>
+      <div class="panel product-text">
+        <h3>Bàn ăn</h3>
+        <p class="spec">Loại gỗ mẫu: gỗ sồi &nbsp;·&nbsp; Kích thước mẫu: dài 2,4 m, rộng 1,0 m</p>
+        <p>Mặt bàn dày dặn, chân chắc, đủ chỗ cho cả nhà quây quần mỗi bữa ăn.</p>
+        <p class="price">Từ 12.000.000đ <span style="font-size:16px;">(giá mẫu)</span></p>
+      </div>
+    </div>
+
+    <div class="split product">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="panel product-text">
+        <h3>Ghế</h3>
+        <p class="spec">Loại gỗ mẫu: gỗ tần bì &nbsp;·&nbsp; Kích thước mẫu: cao 0,9 m, ngồi êm</p>
+        <p>Lưng ghế ôm dáng ngồi, tay vịn bo tròn — ngồi lâu vẫn thoải mái.</p>
+        <p class="price">Từ 3.500.000đ <span style="font-size:16px;">(giá mẫu)</span></p>
+      </div>
+      <div class="img-wrap product-img">
+        <img class="main ratio-43" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Ghế gỗ bên cửa sổ sáng">
+        <p class="caption">Ảnh mẫu: ghế gỗ bên cửa sổ sáng.</p>
+      </div>
+    </div>
+
+    <div class="split product">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="img-wrap product-img">
+        <img class="main ratio-43" src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Tủ gỗ trong phòng khách sáng">
+        <p class="caption">Ảnh mẫu: tủ gỗ trong phòng khách sáng.</p>
+      </div>
+      <div class="panel product-text">
+        <h3>Tủ</h3>
+        <p class="spec">Loại gỗ mẫu: gỗ óc chó &nbsp;·&nbsp; Kích thước mẫu: cao 2,0 m, rộng 1,2 m</p>
+        <p>Cánh tủ đóng mở nhẹ, bản lề chắc — đựng được nhiều mà vẫn gọn gàng.</p>
+        <p class="price">Từ 9.000.000đ <span style="font-size:16px;">(giá mẫu)</span></p>
+      </div>
+    </div>
+
+    <div class="split product">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="panel product-text">
+        <h3>Kệ</h3>
+        <p class="spec">Loại gỗ mẫu: gỗ mẫu &nbsp;·&nbsp; Kích thước mẫu: theo không gian đặt kệ</p>
+        <p>Kệ trưng bày và kệ sách làm theo kích thước góc nhà của bạn.</p>
+        <p class="price">Giá mẫu <span class="placeholder">[CẦN BỔ SUNG]</span></p>
+      </div>
+      <div class="img-wrap product-img">
+        <img class="main ratio-43" src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Góc làm việc với kệ gỗ và bàn gỗ sáng">
+        <p class="caption">Ảnh mẫu: góc làm việc với kệ gỗ và bàn gỗ sáng.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Quy trình -->
+  <section class="split" id="quy-trinh">
+    <div class="panel sticky-panel">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="eyebrow">Quy trình thủ công</div>
+      <h2>Làm ra một món đồ</h2>
+      <p>Bốn bước, không đốt cháy giai đoạn — mỗi bước đều có người thợ kiểm tra trước khi chuyển sang bước sau.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Chọn gỗ</h3>
+        <p>Chọn từng tấm gỗ tự nhiên, xem vân, kiểm tra thớ và độ khô trước khi đưa vào xưởng.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Chế tác</h3>
+        <p>Cưa, bào, ghép mộng bằng tay và máy cơ bản — giữ khớp nối chắc thay vì dán ẩu.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Hoàn thiện</h3>
+        <p>Chà nhám nhiều lượt rồi phủ dầu/lớp bảo vệ bằng tay để giữ nguyên vân gỗ.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Kiểm tra</h3>
+        <p>Kiểm tra độ vững, mặt phẳng và lớp hoàn thiện trước khi giao cho khách.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Câu chuyện thợ mộc -->
+  <section class="split" id="tho-moc">
+    <div class="img-wrap">
+      <img class="main ratio-45" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Bàn làm việc của thợ mộc với dụng cụ quen thuộc">
+      <p class="caption">Ảnh mẫu: bàn làm việc của thợ mộc — dụng cụ quen thuộc, làm bằng tay từng chi tiết.</p>
+    </div>
+    <div class="panel">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="eyebrow">Câu chuyện thợ mộc</div>
+      <h2>Người đứng sau mỗi món đồ</h2>
+      <blockquote>“Một món đồ tốt là món đồ càng dùng càng quen tay, càng nhìn càng thấy vân gỗ đẹp lên.”</blockquote>
+      <p>Thợ chính của xưởng: <span class="placeholder">[CẦN BỔ SUNG]</span>. Mỗi ngày, thợ bắt đầu từ việc chọn gỗ, rồi làm từng chi tiết nhỏ — từ khớp mộng đến lớp dầu cuối cùng — trước khi một món đồ rời khỏi xưởng.</p>
+    </div>
+  </section>
+
+  <!-- 7. Liên hệ -->
+  <section class="split" id="lien-he">
+    <div class="panel">
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <div class="eyebrow">Liên hệ</div>
+      <h2>Đặt lịch tư vấn</h2>
+      <p>Địa chỉ xưởng: <span class="placeholder">[CẦN BỔ SUNG]</span></p>
+      <p>Điện thoại: <span class="placeholder">[CẦN BỔ SUNG]</span></p>
+      <p>Email: <span class="placeholder">[CẦN BỔ SUNG]</span></p>
+      <p>Giờ làm việc mẫu: 8:00–17:30, thứ Hai–thứ Bảy.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); document.getElementById('form-msg').textContent = 'Cảm ơn bạn! Đây là bản minh họa giao diện — yêu cầu chưa được gửi đi.'; return false;">
+      <label for="ten">Họ tên</label>
+      <input id="ten" name="ten" type="text" placeholder="Họ tên của bạn">
+      <label for="sdt">Số điện thoại</label>
+      <input id="sdt" name="sdt" type="tel" placeholder="Số điện thoại liên hệ">
+      <label for="nhucau">Nhu cầu</label>
+      <select id="nhucau" name="nhucau">
+        <option>Bàn</option>
+        <option>Ghế</option>
+        <option>Tủ</option>
+        <option>Kệ</option>
+        <option>Khác</option>
+      </select>
+      <div class="btn-row"><button class="btn btn-primary" type="submit">Gửi yêu cầu tư vấn</button></div>
+      <p class="form-note">Form chỉ là giao diện minh họa, chưa gửi thật.</p>
+      <p id="form-msg" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <span class="stamp" aria-hidden="true"><span class="mono">GX</span><span class="word">GỖ XƯA</span></span>
+      <p style="margin-top:14px;">Gỗ Xưa — Xưởng nội thất gỗ thủ công.</p>
+    </div>
+    <div>
+      <p><a href="#xuong">Xưởng</a> &nbsp;·&nbsp; <a href="#bo-suu-tap">Bộ sưu tập</a> &nbsp;·&nbsp; <a href="#quy-trinh">Quy trình</a> &nbsp;·&nbsp; <a href="#tho-moc">Thợ mộc</a> &nbsp;·&nbsp; <a href="#lien-he">Liên hệ</a></p>
+      <p>Liên hệ: <span class="placeholder">[CẦN BỔ SUNG]</span></p>
+      <p>Ảnh và giá trên trang chỉ là mẫu minh họa cho bản demo.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
